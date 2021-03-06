@@ -1,0 +1,8 @@
+<label>
+  <input #ip_nameList (change)="setListName($event,ip_nameList)" value="{{listname}}">
+</label>
+<ul>
+<li *ngFor = "let element of elemente ; let index = index">{{element.title}}  <h2>{{element.description}} </h2></li>
+
+
+</ul>
