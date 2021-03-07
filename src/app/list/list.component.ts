@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Listelement } from './listelement'
-import {CookieService} from "ngx-cookie-service";
+import {Component, NgModule, OnInit} from '@angular/core';
+import { ListElement } from './list-element/list-element'
+import {ListElementComponent} from "./list-element/list-element.component";
+import { CookieService } from "ngx-cookie-service";
+
 
 
 @Component({
@@ -8,10 +10,11 @@ import {CookieService} from "ngx-cookie-service";
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
+
 export class ListComponent implements OnInit {
 
   public listname : string;
-  public elements : Array<Listelement>;
+  public elements : Array<ListElement>;
   public cookie : CookieService;
 
   public cKeyName :string ="ListName";
@@ -37,9 +40,10 @@ export class ListComponent implements OnInit {
       this.elements = JSON.parse(this.cookie.get(this.cKeyListElements));
     }else{
       this.elements = [];
-      this.elements.push(new Listelement("Zahnarzt","Geh dir mal die Zähne putzen", new Date(),false));
-      this.elements.push(new Listelement("Geburtstag","Vergiss die Mama nicht", new Date(),false));
+      this.elements.push(new ListElement("Zahnarzt","Geh dir mal die Zähne putzen", new Date(),false ));
+      this.elements.push(new ListElement("Geburtstag","Vergiss die Mama nicht", new Date(),false ));
     }
+
   }
 
   ngOnInit(): void {
@@ -61,18 +65,20 @@ export class ListComponent implements OnInit {
 
   }
 
-  deleteListItem(index: number) {
-    this.elements.splice(index+1,1);
-    this.saveCookieValues();
+  public deleteListItem(element : ListElement) {
+    if(this.elements.indexOf(element)>=0){
+      this.elements.splice(this.elements.indexOf(element),1);
+      this.saveCookieValues();
+    }
+
   }
 
-  saveListElement(index: number) {
-
+  public saveListElement() {
     this.saveCookieValues();
   }
 
   addNewElement() {
-    this.elements.push(new Listelement("Name","Beschreibung", new Date(),false));
+    this.elements.push(new ListElement("Name","Beschreibung", new Date(),false));
     this.saveCookieValues();
   }
 }
