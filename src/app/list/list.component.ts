@@ -11,7 +11,7 @@ import {CookieService} from "ngx-cookie-service";
 export class ListComponent implements OnInit {
 
   public listname : string;
-  public elemente : Array<Listelement>;
+  public elements : Array<Listelement>;
   public cookie : CookieService;
 
   public cKeyName :string ="ListName";
@@ -34,11 +34,11 @@ export class ListComponent implements OnInit {
     if(this.cookie.get(this.cKeyListElements)!= null
         && this.cookie.get(this.cKeyListElements).length > 0)
     {
-      this.elemente = JSON.parse(this.cookie.get(this.cKeyListElements));
+      this.elements = JSON.parse(this.cookie.get(this.cKeyListElements));
     }else{
-      this.elemente = [];
-      this.elemente.push(new Listelement("Zahnarzt","Geh dir mal die Zähne putzen", new Date(),false));
-      this.elemente.push(new Listelement("Geburtstag","Vergiss die Mama nicht", new Date(),false));
+      this.elements = [];
+      this.elements.push(new Listelement("Zahnarzt","Geh dir mal die Zähne putzen", new Date(),false));
+      this.elements.push(new Listelement("Geburtstag","Vergiss die Mama nicht", new Date(),false));
     }
   }
 
@@ -47,11 +47,7 @@ export class ListComponent implements OnInit {
   }
 
   saveCookieValues() {
-
-
-
-
-    this.cookie.set(this.cKeyListElements,JSON.stringify(this.elemente));
+    this.cookie.set(this.cKeyListElements,JSON.stringify(this.elements));
     this.cookie.set(this.cKeyName,this.listname);
   }
 
@@ -61,4 +57,22 @@ export class ListComponent implements OnInit {
   }
 
 
+  editListElement(index: number) {
+
+  }
+
+  deleteListItem(index: number) {
+    this.elements.splice(index+1,1);
+    this.saveCookieValues();
+  }
+
+  saveListElement(index: number) {
+
+    this.saveCookieValues();
+  }
+
+  addNewElement() {
+    this.elements.push(new Listelement("Name","Beschreibung", new Date(),false));
+    this.saveCookieValues();
+  }
 }

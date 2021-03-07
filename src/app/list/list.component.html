@@ -2,7 +2,35 @@
   <input #ip_nameList (change)="setListName($event,ip_nameList)" value="{{listname}}">
 </label>
 <ul>
-<li *ngFor = "let element of elemente ; let index = index">{{element.title}}  <h2>{{element.description}} </h2></li>
-
-
+  <li *ngFor = "let element of elements ; let index = index" >
+    <div class="show_values_container">
+      <div class="ele_title"> {{element.title}} </div>
+      <div class="ele_desc"> {{element.description}} </div>
+      <div class="ele_due"> {{element.duedate | date:'dd.MM.yyyy'}} </div>
+      <div class="ele_status">
+        <img class="ele_status_img" [src]="element.status ? 'assets/img/status_done.png' : 'assets/img/status_open.png'">
+      </div>
+      <div class="ele_change">
+        <input class="ele_change_button" type="image" src="assets/img/pencil.png" (click)="editListElement(index);">
+        <input class="ele_change_button" type="image" src="assets/img/delete.png" (click)="deleteListItem(index);">
+      </div>
+    </div>
+    <div class="edit_values_container">
+      <div class="ele_title"> <input value="{{element.title}}" name="edit_title" > </div>
+      <div class="ele_desc"> <input value="{{element.description}}" name="edit_desc"> </div>
+      <div class="ele_due"> <input value="{{element.duedate | date:'dd.MM.yyyy'}}" type="date"></div>
+      <div class="ele_status">
+        <input class="ele_status_img" type="image" [src]="element.status ? 'assets/img/status_done.png' : 'assets/img/status_open.png'">
+      </div>
+      <div class="ele_change">
+        <input class="ele_change_button" type="image" src="assets/img/pencil.png" (click)="saveListElement(index);">
+      </div>
+    </div>
+  </li>
+  <li>
+    <div class="add_item_container">
+      <input class="ele_change_button" type="image" src="assets/img/add.jpg" (click)="addNewElement();">
+    </div>
+  </li>
 </ul>
+
