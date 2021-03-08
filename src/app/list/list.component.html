@@ -1,6 +1,6 @@
-<label>
-  <input #ip_nameList (change)="setListName($event,ip_nameList)" value="{{listname}}">
-</label>
+<label for="id_nameList"> Name </label>
+<input id="id_nameList" #id_nameList (keyup)="setListName($event,id_nameList)" (change)="setListName($event,id_nameList)" value="{{listname}}">
+
 <ul>
   <li *ngFor = "let element of elements" >
     <app-list-element (saveEvent)="saveListElement()" (deleteEvent)="deleteListItem($event)" [data]="element"></app-list-element>

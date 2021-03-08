@@ -70,7 +70,6 @@ export class ListComponent implements OnInit {
       this.elements.splice(this.elements.indexOf(element),1);
       this.saveCookieValues();
     }
-
   }
 
   public saveListElement() {

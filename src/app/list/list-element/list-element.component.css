@@ -1,4 +1,50 @@
 .ele_change_button, .ele_status_img, img {
+  width: 30px;
+  height: 30px;
+}
+
+
+.list_element{
+  margin-bottom: 30px;
+  clear: left;
+  float: left;
+  font-family: Calibri;
+}
+
+.list_element div{
+  margin-right: 20px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.ele_status{
+  float: left;
   width: 50px;
-  height: 50px;
+}
+
+.ele_due{
+  float: left;
+  width: 150px;
+}
+
+.ele_change{
+  float: right;
+  width: 100px;
+}
+
+.text_info{
+  float: left;
+  min-width: 200px;
+  max-width: 500px;
+}
+
+.ele_title{
+  font-size: large;
+  font-weight: bold;
+}
+
+.ele_desc textarea{
+  width: 400px;
+  height: 200px;
+  overflow: visible;
 }

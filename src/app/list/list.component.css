@@ -2,3 +2,28 @@
   width: 50px;
   height: 50px;
 }
+
+ul{
+  list-style: none;
+}
+li{
+  clear: left;
+  float: left;
+  border-bottom: solid darkblue 1px;
+  min-width: 1300px;
+}
+
+.add_item_container{
+  margin-top: 50px;
+  align-content: center;
+}
+
+#id_nameList{
+  margin-bottom: 20px;
+  width: 400px;
+  size: 30px;
+  font-size: large;
+}
+
+
+
