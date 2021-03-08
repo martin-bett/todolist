@@ -9,6 +9,13 @@
   clear: left;
   float: left;
   font-family: Calibri;
+  width: 100%;
+}
+
+.edit_input {
+  font-family:inherit;
+  font-size: inherit;
+  background-color:#b3ffff;
 }
 
 .list_element div{
@@ -20,6 +27,7 @@
 .ele_status{
   float: left;
   width: 50px;
+  background-color: inherit;
 }
 
 .ele_due{
@@ -30,6 +38,7 @@
 .ele_change{
   float: right;
   width: 100px;
+  background-color: inherit;
 }
 
 .text_info{

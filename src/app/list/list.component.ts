@@ -44,6 +44,10 @@ export class ListComponent implements OnInit {
       this.elements.push(new ListElement("Geburtstag","Vergiss die Mama nicht", new Date(),false ));
     }
 
+    this.elements.sort(((a, b) => (a.duedate>b.duedate)?1:0));
+
+
+
   }
 
   ngOnInit(): void {
@@ -78,6 +82,13 @@ export class ListComponent implements OnInit {
 
   addNewElement() {
     this.elements.push(new ListElement("Name","Beschreibung", new Date(),false));
+    this.saveCookieValues();
+  }
+
+  closeAll() {
+    for (let e of this.elements){
+      e.edit =false;
+    }
     this.saveCookieValues();
   }
 }

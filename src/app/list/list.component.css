@@ -14,8 +14,11 @@ li{
 }
 
 .add_item_container{
-  margin-top: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   align-content: center;
+  margin-left: auto;
+  width: 50%;
 }
 
 #id_nameList{
@@ -25,5 +28,8 @@ li{
   font-size: large;
 }
 
+app-list-element{
+  width: 100%;
+}
 
 

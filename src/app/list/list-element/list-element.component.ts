@@ -12,6 +12,7 @@ import {ListElement} from "./list-element";
   @Input() data!: ListElement;
   @Output() saveEvent = new EventEmitter<ListElement>();
   @Output() deleteEvent = new EventEmitter<ListElement>();
+  @Output() closeOtherEvent = new EventEmitter<ListElement>();
   //('app-list-element')
 
   deleteItem(){
@@ -20,5 +21,19 @@ import {ListElement} from "./list-element";
 
   saveItem(){
     this.saveEvent.emit(this.data);
+  }
+
+  closeOther(){
+    this.closeOtherEvent.emit(this.data);
+  }
+
+  startEdit() {
+    this.closeOther();
+    this.data.edit = true;
+
+  }
+
+  setDate(value: string) {
+    return new Date(value);
   }
 }

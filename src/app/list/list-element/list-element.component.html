@@ -4,25 +4,25 @@
     <input class="ele_status_img" type="image" name="edit_status" [src]="data.status ? 'assets/img/status_done.png' : 'assets/img/status_open.png'" (click)="data.status = !data.status">
   </div>
 
-  <div class="ele_due" (click)="data.edit = true"> {{data.duedate | date:'dd.MM.yyyy'}} </div>
-  <div class="text_info ele_title" (click)="data.edit = true"> {{data.title}} </div>
-  <div class="text_info ele_desc" (click)="data.edit = true"> {{data.description}} </div>
+  <div class="ele_due" (click)="startEdit();"> {{data.duedate | date:'dd.MM.yyyy'}} </div>
+  <div class="text_info ele_title" (click)="startEdit();"> {{data.title}} </div>
+  <div class="text_info ele_desc" (click)="startEdit();"> {{data.description}} </div>
 
   <div class="ele_change">
-    <!--<input class="ele_change_button" type="image" src="assets/img/pencil.png" (click)="data.edit = true">-->
+    <input class="ele_change_button" type="image" src="assets/img/pencil.png" (click)="startEdit();">
     <input class="ele_change_button" type="image" src="assets/img/delete.png" (click)="deleteItem();">
   </div>
 </div>
 
-<div [hidden]="!data.edit" class="edit_values_container list_element" #edit_container>
+<div [hidden]="!data.edit" class="edit_values_container list_element" #edit_container >
   <div class="ele_status">
     <input class="ele_status_img" type="image" name="edit_status" [src]="data.status ? 'assets/img/status_done.png' : 'assets/img/status_open.png'" (click)="data.status = !data.status">
   </div>
 
-  <div class="ele_due"> <input value="{{data.duedate | date:'yyyy-MM-dd'}}" #edit_date type="date" (change)="data.duedate=edit_date.valueAsDate"> </div>
-  <div class="text_info ele_title"> <input onfocus="if (this.value === 'Name') this.value=''" value="{{data.title}}" #edit_title  (change)="data.title = edit_title.value"> </div>
-  <div class="text_info ele_desc"> <textarea onfocus="if (this.value === 'Beschreibung') this.value=''" value="{{data.description}}" #edit_desc (change)="data.description = edit_desc.value"> </textarea></div>
+  <div class="ele_due" > <input class="edit_input" value="{{data.duedate | date:'yyyy-MM-dd'}}" #edit_date type="date" (change)="data.duedate=setDate(edit_date.value);"> </div>
+  <div class="text_info ele_title"> <input class="edit_input" onfocus="if (this.value === 'Name') this.value=''" value="{{data.title}}" #edit_title  (change)="data.title = edit_title.value"> </div>
+  <div class="text_info ele_desc"> <textarea class="edit_input" onfocus="if (this.value === 'Beschreibung') this.value=''" value="{{data.description}}" #edit_desc (change)="data.description = edit_desc.value"> </textarea></div>
   <div class="ele_change">
-    <input class="ele_change_button" type="image" src="assets/img/pencil.png" (click)="data.edit = false; saveItem();">
+    <input class="ele_change_button" type="image" src="assets/img/save.png" (click)="data.edit = false; saveItem();">
   </div>
 </div>

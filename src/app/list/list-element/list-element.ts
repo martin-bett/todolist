@@ -4,7 +4,7 @@ export class ListElement {
 
   public title : string;
   public description : string;
-  public duedate : Date | null;
+  public duedate : Date;
   public status: boolean;
   public edit: boolean = false;
 

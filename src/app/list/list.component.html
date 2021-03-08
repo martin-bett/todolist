@@ -3,7 +3,7 @@
 
 <ul>
   <li *ngFor = "let element of elements" >
-    <app-list-element (saveEvent)="saveListElement()" (deleteEvent)="deleteListItem($event)" [data]="element"></app-list-element>
+    <app-list-element (saveEvent)="saveListElement()" (deleteEvent)="deleteListItem($event)" (closeOtherEvent)="closeAll();" [data]="element"></app-list-element>
   </li>
   <li>
     <div class="add_item_container">
